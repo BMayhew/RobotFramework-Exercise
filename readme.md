@@ -28,6 +28,14 @@ Run the Robot script within docker container (note: this will work without havin
 docker run --rm -t robot-test
 ```
 
+## Running in Gitlab (Local)
+
+Included .gitlab-ci.yml file which can be run from a local machine by [Installing](https://docs.gitlab.com/runner/install/) the correct version, and [Registering](https://docs.gitlab.com/runner/commands/#gitlab-runner-register) the runner on your local machine. Once properly configured you should be able to run `gitlab-runner --version` and see a version number. Once complete the below command can be run to execute simulating a gitlab-runner container in the cloud.
+
+``` bash
+gitlab-runner exec docker robot-gitlab-test
+```
+
 ## Contributing
 
 If a new dependencies is added please be sure ot update the requirements.txt file properly.

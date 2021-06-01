@@ -1,8 +1,7 @@
-version_checker:
+robot-gitlab-test:
   stage: test
   image: python:latest
   script:
     - pip install --upgrade pip
     - pip install -r requirements.txt
     - robot api.robot
-    
