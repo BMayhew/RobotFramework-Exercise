@@ -1,24 +1,14 @@
-FROM ubuntu
-LABEL version="latest" maintainer="ritugarg <ritu.garg@globallogic.com>"
-RUN apt-get update
-RUN apt install -y python3.8
-RUN apt install -y python3-pip
+FROM python:3.8
 
-#Install robotframework and seleniumlibrary
-RUN pip3 install robotframework
-RUN pip3 install robotframework-seleniumlibrary
-RUN pip3 install -U requests
-RUN pip3 install -U robotframework-requests
-RUN pip3 install jsonpath_rw
-RUN pip3 install jsonpath_rw_ext
-RUN pip3 install robotframework-jsonlibrary
+#Coppies all files in folder to docker container
+COPY . /
 
-#Robot Specific
+#Install required dependencies
+RUN pip install -r requirements.txt
+
+#Robot Specific  These may not be needed as the output is being placed in root directory may could remove line 10-11
 RUN mkdir /robot
-run mkdir /results
-ENTRYPOINT ["robot"]
+RUN mkdir /results
 
-
-
-#CMD ["/app/help.py"]
-#ENTRYPOINT ["python3.8"]
+#This is another way to interact with Docker, by default this runs the command 'robot api.robot' This is different than endpoint as once test is complete, the docker container closes automatically. The Entrypoint is similar to the command and for testing purposes you can build it to allow you to interact with the docker container.
+CMD [ "robot", "./api.robot" ]

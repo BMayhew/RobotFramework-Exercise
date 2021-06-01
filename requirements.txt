@@ -1,0 +1,6 @@
+jsonpath_rw
+jsonpath_rw_ext
+requests
+robotframework
+robotframework-jsonlibrary
+robotframework-requests
