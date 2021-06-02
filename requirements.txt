@@ -1,6 +1,7 @@
+robotframework
+robotframework-seleniumlibrary
+requests
+robotframework-requests
 jsonpath_rw
 jsonpath_rw_ext
-requests
-robotframework
 robotframework-jsonlibrary
-robotframework-requests
